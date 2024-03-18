@@ -1,0 +1,18 @@
+{
+  "recommendations": [
+    "formulahendry.auto-complete-tag",
+    "mgmcdermott.vscode-language-babel",
+    "adpyke.codesnap",
+    "mikestead.dotenv",
+    "editorconfig.editorconfig",
+    "dsznajder.es7-react-js-snippets",
+    "dbaeumer.vscode-eslint",
+    "ecmel.vscode-html-css",
+    "bradlc.vscode-tailwindcss",
+    "antfu.vite",
+    "jawandarajbir.react-vscode-extension-pack",
+    "gamunu.vscode-yarn",
+    "esbenp.prettier-vscode",
+    "wix.vscode-import-cost"
+  ]
+}

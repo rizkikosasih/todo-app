@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caramel&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: transparent !important;
+  scroll-behavior: smooth !important;
+}
+
+body {
+  font-family: 'Roboto', 'Open Sans', sans-serif;
+}
+
+.swal2-container .swal2-popup {
+  width: 75vw;
+}
+
+@media (min-width: 640px) {
+  .swal2-container .swal2-popup {
+    width: 50vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  .swal2-container .swal2-popup {
+    width: 25vw;
+  }
+}
+
+@layer utilities {
+  :where(h1, h2, h3, h4, h5, h6) {
+    @apply font-extrabold;
+  }
+
+  h1 {
+    @apply text-5xl;
+  }
+
+  h2 {
+    @apply text-4xl;
+  }
+
+  h3 {
+    @apply text-3xl;
+  }
+
+  h4 {
+    @apply text-2xl;
+  }
+
+  h5 {
+    @apply text-xl;
+  }
+
+  h6 {
+    @apply text-lg;
+  }
+
+  .bg-main {
+    background: linear-gradient(to top, #09203f 0%, #537895 100%);
+    @apply relative w-full h-auto min-h-screen text-white;
+  }
+
+  .transform-center {
+    transform: translate(-50%, -50%);
+  }
+
+  .centered-content {
+    @apply fixed w-full h-screen flex flex-col items-center justify-center top-[50%] left-[50%] transform-center;
+  }
+
+  .max-container {
+    @apply w-full h-auto min-h-screen px-2 py-0 relative;
+  }
+
+  .text-blue-gradient {
+    @apply bg-gradient-to-r from-[#00c6ff] to-[#0072ff] bg-clip-text text-transparent;
+  }
+
+  img.not-found {
+    @apply w-40 h-40 tablet:w-52 tablet:h-52 laptop:w-60 laptop:h-60;
+  }
+
+  .todo-content {
+    @apply relative flex flex-col justify-center items-center w-[70vw] tablet:w-[60vw] laptop:w-[50vw] mx-auto;
+  }
+
+  .todo-header {
+    @apply w-full flex flex-col gap-4;
+  }
+
+  .todo-header .header {
+    @apply w-full grid grid-rows-2 tablet:grid-cols-3 tablet:grid-rows-none gap-4;
+  }
+
+  .todo-body {
+    @apply w-full my-6;
+  }
+}
