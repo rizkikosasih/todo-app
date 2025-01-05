@@ -5,14 +5,19 @@
     "adpyke.codesnap",
     "mikestead.dotenv",
     "editorconfig.editorconfig",
-    "dsznajder.es7-react-js-snippets",
     "dbaeumer.vscode-eslint",
     "ecmel.vscode-html-css",
     "bradlc.vscode-tailwindcss",
     "antfu.vite",
-    "jawandarajbir.react-vscode-extension-pack",
     "gamunu.vscode-yarn",
     "esbenp.prettier-vscode",
-    "wix.vscode-import-cost"
+    "wix.vscode-import-cost",
+    "xabikos.reactsnippets",
+    "christian-kohler.npm-intellisense",
+    "xabikos.javascriptsnippets",
+    "christian-kohler.path-intellisense",
+    "jasonnutter.search-node-modules",
+    "burkeholland.simple-react-snippets",
+    "planbcoding.vscode-react-refactor"
   ]
 }
