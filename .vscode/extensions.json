@@ -18,6 +18,7 @@
     "christian-kohler.path-intellisense",
     "jasonnutter.search-node-modules",
     "burkeholland.simple-react-snippets",
-    "planbcoding.vscode-react-refactor"
+    "planbcoding.vscode-react-refactor",
+    "dsznajder.es7-react-js-snippets"
   ]
 }
