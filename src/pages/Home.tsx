@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../store/useAuthStore';
 import { useTodoStore } from '../store/useTodoStore';
@@ -19,7 +19,9 @@ import {
 } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 
-export const Home: React.FC = () => {
+const filterOptions = ['all', 'incomplete', 'complete'];
+
+export const Home = () => {
   const navigate = useNavigate();
   const { user, logout } = useAuthStore();
   const { theme, toggleTheme } = useTheme();
@@ -77,8 +79,7 @@ export const Home: React.FC = () => {
 
   if (!user) return null;
 
-  const handleAddTodo = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleAddTodo = async () => {
     if (!todoText.trim() || isSubmitting) return;
 
     setIsSubmitting(true);
@@ -190,7 +191,12 @@ export const Home: React.FC = () => {
             <h3 className="text-sm font-bold text-foreground">Buat Tugas Baru</h3>
           </div>
 
-          <form onSubmit={handleAddTodo} className="space-y-4">
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleAddTodo();
+            }}
+            className="space-y-4">
             {/* Main Input Text */}
             <div className="relative">
               <input
@@ -270,10 +276,14 @@ export const Home: React.FC = () => {
 
             {/* Filter Tabs */}
             <div className="flex border border-border/80 rounded-xl p-1 bg-background/40 self-start sm:self-auto">
-              {(['all', 'incomplete', 'complete'] as const).map((t) => (
+              {filterOptions.map((t) => (
                 <button
                   key={t}
-                  onClick={() => setFilter(t)}
+                  onClick={() => {
+                    if (t === 'all' || t === 'complete' || t === 'incomplete') {
+                      setFilter(t);
+                    }
+                  }}
                   className={`text-xs font-semibold px-4 py-1.5 rounded-lg transition-all capitalize ${
                     filter === t
                       ? 'bg-primary text-primary-foreground shadow-sm'

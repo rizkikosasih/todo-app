@@ -10,8 +10,6 @@
   "git.enableSmartCommit": true,
   // Extension: Prettier
   "prettier.requireConfig": true,
-  "prettier.configPath": ".prettierrc",
-  "prettier.ignorePath": ".prettierignore",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   // Extension: ESLint
