@@ -3,22 +3,17 @@
     "formulahendry.auto-complete-tag",
     "mgmcdermott.vscode-language-babel",
     "adpyke.codesnap",
-    "mikestead.dotenv",
     "editorconfig.editorconfig",
     "dbaeumer.vscode-eslint",
     "ecmel.vscode-html-css",
     "bradlc.vscode-tailwindcss",
-    "antfu.vite",
-    "gamunu.vscode-yarn",
     "esbenp.prettier-vscode",
     "wix.vscode-import-cost",
     "xabikos.reactsnippets",
-    "christian-kohler.npm-intellisense",
     "xabikos.javascriptsnippets",
     "christian-kohler.path-intellisense",
     "jasonnutter.search-node-modules",
     "burkeholland.simple-react-snippets",
-    "planbcoding.vscode-react-refactor",
-    "dsznajder.es7-react-js-snippets"
+    "planbcoding.vscode-react-refactor"
   ]
 }
