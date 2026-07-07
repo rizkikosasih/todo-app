@@ -7,7 +7,7 @@
     "dev": "vite --port=4000",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "format": "prettier . --write --config .prettierrc.json --ignore-path .prettierignore"
+    "format": "prettier . --write --config .prettierrc --ignore-path .prettierignore"
   },
   "dependencies": {
     "canvas-confetti": "^1.9.3",

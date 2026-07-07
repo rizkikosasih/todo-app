@@ -17,7 +17,7 @@ import {
   Loader2,
   ClipboardList
 } from 'lucide-react';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -42,6 +42,7 @@ export const Home: React.FC = () => {
   const [category, setCategory] = useState('');
   const [dueDate, setDueDate] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
 
   // Sync session and fetch data
   useEffect(() => {
@@ -100,11 +101,14 @@ export const Home: React.FC = () => {
     }
   };
 
-  const handleLogout = async () => {
-    if (confirm('Apakah Anda yakin ingin keluar?')) {
-      await logout();
-      navigate('/');
-    }
+  const handleLogoutClick = () => {
+    setShowLogoutConfirm(true);
+  };
+
+  const handleConfirmLogout = async () => {
+    setShowLogoutConfirm(false);
+    await logout();
+    navigate('/');
   };
 
   // Filter tasks based on selected tab
@@ -166,7 +170,7 @@ export const Home: React.FC = () => {
 
             {/* Logout */}
             <button
-              onClick={handleLogout}
+              onClick={handleLogoutClick}
               className="p-2 rounded-xl border border-border/80 hover:bg-destructive/10 text-muted-foreground hover:text-destructive transition-all duration-200"
               title="Keluar">
               <LogOut size={16} />
@@ -302,6 +306,43 @@ export const Home: React.FC = () => {
           </div>
         </div>
       </main>
+
+      {/* Custom Logout Confirmation Modal */}
+      <AnimatePresence>
+        {showLogoutConfirm && (
+          <div className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 flex items-center justify-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.15 }}
+              className="glass max-w-sm w-full mx-4 p-6 rounded-3xl border border-border/80 shadow-2xl space-y-4">
+              <div className="flex items-center gap-3 text-destructive">
+                <div className="p-2.5 bg-destructive/10 rounded-xl">
+                  <LogOut className="w-6 h-6" />
+                </div>
+                <h3 className="text-lg font-bold text-foreground">Konfirmasi Keluar</h3>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                Apakah Anda yakin ingin keluar dari akun Anda? Seluruh tugas Anda tetap
+                tersimpan dengan aman di database.
+              </p>
+              <div className="flex justify-end gap-3 pt-2">
+                <button
+                  onClick={() => setShowLogoutConfirm(false)}
+                  className="px-4 py-2 border border-border/80 rounded-xl text-xs font-semibold hover:bg-secondary transition-all">
+                  Batal
+                </button>
+                <button
+                  onClick={handleConfirmLogout}
+                  className="px-4 py-2 bg-destructive text-destructive-foreground rounded-xl text-xs font-semibold hover:opacity-90 active:scale-95 transition-all shadow-md">
+                  Keluar
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
